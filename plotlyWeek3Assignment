@@ -1,0 +1,45 @@
+---
+title: "Diamond Representation "
+date: "May 6, 2021"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Understanding Diamond Representation
+
+Using the `diamond` dataset we plot can attempt to understand the relationship
+of various characteristics of a diamond. Key attributes of a diamond are carat cut   
+color clarity depth table price
+
+A plot has been made between various characteristics spatially along the x/y axes.
+
+
+## Data Preparation
+
+# Load plotly R package
+library(plotly)
+
+# Load the diamonds dataset from the ggplot2 
+data(diamonds, package = "ggplot2")
+
+# View content of data set diamonds
+diamonds
+
+
+## Visualizing the Data
+
+```{r plot, echo=FALSE}
+suppressPackageStartupMessages(library(plotly))
+
+# Plotting a bar graph
+plot_ly(diamonds, x = ~cut)
+
+#Plotting Heat Map
+plot_ly(diamonds, x = ~cut, y = ~clarity)
+
+# Plotting bar graph with color legend 
+plot_ly(diamonds, x = ~cut, color = ~clarity, colors = "Accent")  %>%    layout(title = "Diamond Details")
+
+```
